@@ -1,5 +1,4 @@
 <h1>My Weather App</h1>
 
-<button type="button" class="btn btn-default" (click)="showText.set(showText())">Click me</button>
-
+<button type="button" class="btn btn-primary" (click)="showText.set(!showText())">Click me</button>
 <p *ngIf="showText()">This is a small signal triggered text</p>
