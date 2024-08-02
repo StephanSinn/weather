@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-10 container border my-4 rounded-3">
+    <h1 class="text-center">My Weather App</h1>
+
+    <form class="form-group row align-items-start p-3" #zipForm="ngForm" (ngSubmit)="submit()">
+      <label for="zipCode" class="form-label col-2">Zip Code</label>
+      <div class="col">
+        <input type="text" class="form-control" id="zipCode" required minlength="5" maxlength="7"
+               [(ngModel)]="model.zipCode" name="zipCode"
+               #zipCode="ngModel">
+
+        <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)" class="text-danger-emphasis">
+          <i class="bi bi-exclamation-octagon px-1"></i>
+          <span *ngIf="zipCode.errors?.['required']">ZipCode is required.</span>
+          <span *ngIf="zipCode.errors?.['minlength']">Zip code must be at least 5 characters long.</span>
+        </div>
+
+        <div *ngIf="zipCode.valid" class="text-success-emphasis">
+          <i class="bi-check-circle px-1"></i> <span>Valid Zip!</span>
+        </div>
+
+      </div>
+
+      <button [disabled]="zipCode.invalid || zipCode.untouched" type="submit" class="btn btn-primary col-2">Submit
+      </button>
+    </form>
+  </div>
+</div>
