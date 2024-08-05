@@ -1,1 +1,15 @@
 <p>location-list works!</p>
+@for (location of locationService.selectedLocations.values(); track location.zip) {
+  <app-location-card
+    [location]="location"
+  >
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-3 text-end">
+          <button class="btn btn-primary" (click)="removeLocation(location)">Remove location</button>
+        </div>
+      </div>
+    </div>
+
+  </app-location-card>
+}

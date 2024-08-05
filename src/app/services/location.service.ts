@@ -8,7 +8,7 @@ import {BehaviorSubject, catchError, filter, Observable, of, Subject, switchMap}
 export class LocationService {
   httpClient = inject(HttpClient);
   zipCode$ = new Subject<number | null>();
-  selectedLocations:WeatherLocation[] =  []
+  selectedLocations = new Map<string, WeatherLocation>();
 
   getLocationByZipCode$ = this.zipCode$.pipe(
     filter((zipCode): zipCode is number => zipCode != null),

@@ -21,12 +21,12 @@ export class CurrentComponent {
   location$ = this.locationService.getLocationByZipCode$
 
   addLocation(location: WeatherLocation) {
-    if (this.locationService.selectedLocations.some((element) => element.zip === location.zip)) {
+    if (this.locationService.selectedLocations.has(location.zip)) {
       this.alreadyInList.set(true)
       return
     }
-    this.locationService.selectedLocations.push(location);
-    console.log(this.locationService.selectedLocations)
+    this.locationService.selectedLocations.set(location.zip, location);
+    this.alreadyInList.set(false)
   }
 
 }
