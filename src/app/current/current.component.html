@@ -1,2 +1,23 @@
-<p>current works!</p>
 <p>{{ (location$ | async) | json }}</p>
+<ng-container *ngIf="(location$ | async) as location">
+  <app-location-card
+    *ngIf="!location.error; else notFound"
+    [location]="location"
+  >
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-9 alert alert-warning" *ngIf="alreadyInList()">
+          The location is already in your list and thus cannot be added.
+        </div>
+        <div class="col-3 text-end">
+          <button class="btn btn-primary" (click)="addLocation(location)">Add location</button>
+        </div>
+      </div>
+    </div>
+  </app-location-card>
+  <ng-template #notFound>
+    <div class="alert alert-danger" role="alert">
+      We could not find anything for this zip code, please try another within the US.
+    </div>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ location().name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ location().zip }} | {{ location().country }}</h6>
+    <div class="card-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <span>Text 1</span>
+          </div>
+          <div class="col-6">
+            <span>Text 2</span>
+          </div>
+        </div>
+      </div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
