@@ -1,4 +1,4 @@
-<p>location-list works!</p>
+<h1 *ngIf="locationService.selectedLocations.size">Your stored locations</h1>
 @for (location of locationService.selectedLocations.values(); track location.zip) {
   <app-location-card
     [location]="location"
@@ -12,4 +12,5 @@
     </div>
 
   </app-location-card>
+  <br>
 }

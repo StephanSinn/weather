@@ -1,14 +1,27 @@
-import {Component, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {WeatherLocation} from "../services/location.service";
+import {WeatherDataService} from "../services/weather-data.service";
+import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
+import {toObservable} from "@angular/core/rxjs-interop";
+import {switchMap} from "rxjs";
 
 @Component({
   selector: 'app-location-card',
   standalone: true,
-  imports: [],
+  imports: [
+    AsyncPipe,
+    JsonPipe,
+    NgIf
+  ],
   templateUrl: './location-card.component.html',
   styleUrl: './location-card.component.css'
 })
 export class LocationCardComponent {
   location = input.required<WeatherLocation>()
+  weatherDataService = inject(WeatherDataService)
 
+  currentWeather$ = toObservable(this.location).pipe(
+    switchMap((location) => this.weatherDataService.getCurrentWeather(location)
+    )
+  )
 }

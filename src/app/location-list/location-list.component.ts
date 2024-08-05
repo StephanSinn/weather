@@ -1,12 +1,14 @@
 import {Component, inject} from '@angular/core';
 import {LocationService, WeatherLocation} from "../services/location.service";
 import {LocationCardComponent} from "../location-card/location-card.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-location-list',
   standalone: true,
   imports: [
-    LocationCardComponent
+    LocationCardComponent,
+    NgIf
   ],
   templateUrl: './location-list.component.html',
   styleUrl: './location-list.component.css'

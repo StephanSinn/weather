@@ -27,7 +27,7 @@ export interface WeatherLocation {
   zip: string,
   name: string,
   lat: string,
-  long: string,
+  lon: string,
   country: string,
   error?: Object
 }

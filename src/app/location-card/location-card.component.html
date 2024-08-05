@@ -5,12 +5,18 @@
     <div class="card-text">
       <div class="container">
         <div class="row">
-          <div class="col-6">
-            <span>Text 1</span>
-          </div>
-          <div class="col-6">
-            <span>Text 2</span>
-          </div>
+          <ng-container *ngIf="(currentWeather$| async) as currentWeather">
+            <div class="col-6">
+              <p>Current conditions: {{ currentWeather.weather.at(0)?.main }}</p>
+              <p>Current Temperature: {{ currentWeather.main.temp }}</p>
+              <p>Temperature Max today: {{ currentWeather.main.temp_max }} - Min
+                today: {{ currentWeather.main.temp_min }} </p>
+            </div>
+            <div class="col-6">
+<!--              TODO put in directive-->
+              <img [src]="'https://openweathermap.org/img/wn/'+currentWeather.weather.at(0)?.icon+'@2x.png'" [alt]="currentWeather.weather.at(0)?.main">
+            </div>
+          </ng-container>
         </div>
       </div>
       <ng-content></ng-content>

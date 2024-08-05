@@ -1,5 +1,5 @@
-<p>{{ (location$ | async) | json }}</p>
 <ng-container *ngIf="(location$ | async) as location">
+  <h1>Found location</h1>
   <app-location-card
     *ngIf="!location.error; else notFound"
     [location]="location"
@@ -21,3 +21,4 @@
     </div>
   </ng-template>
 </ng-container>
+<br>
