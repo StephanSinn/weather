@@ -1,1 +1,24 @@
-<p>forecast works!</p>
+<div class="container">
+  <div class="row justify-content-between align-items-center">
+    <div class="col">
+      <h1>Weather Forecast</h1>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-primary" (click)="navigateHome()">Back</button>
+    </div>
+  </div>
+  <div class="row" *ngIf=" (location$ | async) as location">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ location.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ location.zip }} | {{ location.country }}</h6>
+        <div class="card-text">
+          <div class="container">
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
