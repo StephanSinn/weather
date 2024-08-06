@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {LocationService, WeatherLocation} from "../services/location.service";
 import {LocationCardComponent} from "../location-card/location-card.component";
 import {NgIf} from "@angular/common";
@@ -15,8 +15,12 @@ import {RouterLink} from "@angular/router";
   templateUrl: './location-list.component.html',
   styleUrl: './location-list.component.css'
 })
-export class LocationListComponent {
+export class LocationListComponent implements OnInit{
   locationService = inject(LocationService);
+
+  ngOnInit() {
+    this.restoreLocationList()
+  }
 
   removeLocation(location:WeatherLocation) {
     this.locationService.selectedLocations.delete(location.zip)

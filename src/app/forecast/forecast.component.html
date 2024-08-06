@@ -8,13 +8,28 @@
     </div>
   </div>
   <div class="row" *ngIf=" (location$ | async) as location">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ location.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ location.zip }} | {{ location.country }}</h6>
-        <div class="card-text">
-          <div class="container">
-            <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ location.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ location.zip }} | {{ location.country }}</h6>
+          <div class="card-text">
+            <div class="container" *ngIf="(forecasts$| async) as forecasts">
+              @for (forecast of forecasts.list; track $index) {
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-9">
+                    <span> {{forecast.dt*1000 | date:'fullDate'}}:</span>
+                    <span> {{forecast.weather.at(0)?.main}}</span>
+                    <span> High: {{forecast.temp.max}}°C - </span>
+                    <span> Low: {{forecast.temp.min}}°C - </span>
+                    <span> Average: {{forecast.temp.day}}°C</span>
+                  </div>
+                  <div class="col-3">
+                    <img [src]="'https://openweathermap.org/img/wn/'+forecast.weather.at(0)?.icon+'@2x.png'"
+                         [alt]="forecast.weather.at(0)?.main" title="something stupid">
+                  </div>
+                </div>
+              }
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {catchError, filter, of, switchMap} from "rxjs";
+import {catchError, filter, of, switchMap, tap} from "rxjs";
 import {WeatherLocation} from "./location.service";
 import {HttpClient} from "@angular/common/http";
 
