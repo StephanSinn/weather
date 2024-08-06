@@ -28,7 +28,7 @@ export class LocationService {
   getLocation$(zipCode: string | null): Observable<WeatherLocation> {
     return this.httpClient
       .get<WeatherLocation>(
-        `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=5a4b2d457ecbef9eb2a71e480b947604`,
+        `https://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=5a4b2d457ecbef9eb2a71e480b947604`,
       )
       .pipe(
         catchError((err) => {
