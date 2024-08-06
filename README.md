@@ -25,3 +25,18 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Start Up
+
+1. Generate Angular project with IDE
+2. git init and push to github repo
+3. setup vercel with github repo
+4. install bootstrap, boostrap-icons and prettier (configure to run on save in ide)
+```shell
+npm install bootstrap bootstrap-icons prettier
+```
+5. To generate a new component without styles and tests
+```shell
+ng g c --inline-style --skip-tests COMPONENTNAME
+```
