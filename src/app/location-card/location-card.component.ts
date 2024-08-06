@@ -1,9 +1,10 @@
 import {Component, inject, input} from '@angular/core';
 import {WeatherLocation} from "../services/location.service";
 import {WeatherDataService} from "../services/weather-data.service";
-import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgIf, NgOptimizedImage} from "@angular/common";
 import {toObservable} from "@angular/core/rxjs-interop";
 import {switchMap} from "rxjs";
+import {IconLoaderDirective} from "../directives/icon-loader.directive";
 
 @Component({
   selector: 'app-location-card',
@@ -11,7 +12,9 @@ import {switchMap} from "rxjs";
   imports: [
     AsyncPipe,
     JsonPipe,
-    NgIf
+    NgIf,
+    NgOptimizedImage,
+    IconLoaderDirective
   ],
   templateUrl: './location-card.component.html',
   styleUrl: './location-card.component.css'

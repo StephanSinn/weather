@@ -25,8 +25,7 @@
                     <span> Average: {{forecast.temp.day}}°C</span>
                   </div>
                   <div class="col-3">
-                    <img [src]="'https://openweathermap.org/img/wn/'+forecast.weather.at(0)?.icon+'@2x.png'"
-                         [alt]="forecast.weather.at(0)?.main" title="something stupid">
+                    <img src="" [alt]="forecast.weather.at(0)?.main" [appIconLoader]="forecast.weather.at(0)?.icon" [iconSize]="'2'">
                   </div>
                 </div>
               }

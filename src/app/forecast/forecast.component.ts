@@ -5,6 +5,7 @@ import {WeatherDataService} from "../services/weather-data.service";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {ActivatedRoute, Router} from "@angular/router";
 import {switchMap, tap} from "rxjs";
+import {IconLoaderDirective} from "../directives/icon-loader.directive";
 
 @Component({
   selector: 'app-forecast',
@@ -12,7 +13,8 @@ import {switchMap, tap} from "rxjs";
   imports: [
     AsyncPipe,
     NgIf,
-    DatePipe
+    DatePipe,
+    IconLoaderDirective
   ],
   templateUrl: './forecast.component.html',
   styleUrl: './forecast.component.css'

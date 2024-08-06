@@ -13,8 +13,7 @@
                 today: {{ currentWeather.main.temp_min }} </p>
             </div>
             <div class="col-6">
-<!--              TODO put in directive-->
-              <img [src]="'https://openweathermap.org/img/wn/'+currentWeather.weather.at(0)?.icon+'@4x.png'" [alt]="currentWeather.weather.at(0)?.main">
+              <img src="" [appIconLoader]="currentWeather.weather.at(0)?.icon" [iconSize]="'4'" [alt]="currentWeather.weather.at(0)?.main">
             </div>
           </ng-container>
         </div>
