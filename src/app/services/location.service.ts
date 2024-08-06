@@ -21,6 +21,14 @@ export class LocationService {
     )
   )
 
+  storeLocationListLocally() {
+    localStorage.setItem('locationList', JSON.stringify(Array.from(this.selectedLocations.entries())))
+  }
+
+  restoreLocationListLocally() {
+    this.selectedLocations = new Map(JSON.parse(localStorage.getItem('locationList') ?? ''))
+  }
+
 }
 
 export interface WeatherLocation {

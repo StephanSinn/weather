@@ -20,4 +20,12 @@ export class LocationListComponent {
     this.locationService.selectedLocations.delete(location.zip)
   }
 
+  storeLocationList(){
+    this.locationService.storeLocationListLocally()
+  }
+
+  restoreLocationList(){
+    this.locationService.restoreLocationListLocally()
+  }
+
 }

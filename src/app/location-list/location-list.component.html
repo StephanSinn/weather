@@ -1,16 +1,35 @@
-<h1 *ngIf="locationService.selectedLocations.size">Your stored locations</h1>
-@for (location of locationService.selectedLocations.values(); track location.zip) {
-  <app-location-card
-    [location]="location"
-  >
-    <div class="container">
-      <div class="row justify-content-end">
-        <div class="col-3 text-end">
-          <button class="btn btn-primary" (click)="removeLocation(location)">Remove location</button>
+<div class="container">
+  <div class="row justify-content-between align-items-center">
+    <div class="col">
+      <h1>Your stored locations</h1>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-primary" (click)="restoreLocationList()">Restore locations</button>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="locationService.selectedLocations.size">
+  @for (location of locationService.selectedLocations.values(); track location.zip) {
+    <app-location-card
+      [location]="location"
+    >
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-3 text-end">
+            <button class="btn btn-secondary" (click)="removeLocation(location)">Remove location</button>
+          </div>
         </div>
       </div>
-    </div>
 
-  </app-location-card>
-  <br>
-}
+    </app-location-card>
+    <br>
+  }
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col text-end">
+        <button class="btn btn-outline-primary" (click)="storeLocationList()">Store locations</button>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
